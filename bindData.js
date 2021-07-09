@@ -149,3 +149,25 @@ document.getElementById('button').addEventListener('click', function () {
   console.log(newObj);
   newObj.value += 1;
 });
+
+var t;
+function foo() {
+  if (t) return t;
+  t = new Date().getTime();
+  return t;
+}
+console.log(foo());
+console.log(foo());
+console.log(foo());
+
+var foo1 = (function () {
+  var t;
+  return function () {
+    if (t) return t;
+    t = new Date();
+    return t;
+  };
+})();
+console.log(foo1());
+console.log(foo1());
+console.log(foo1());
